@@ -1,6 +1,6 @@
 {
   "name": "@hopets/delete-node-modules",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Delete node_modules in a given directory",
   "type": "module",
   "main": "./dist/index.cjs",
