@@ -1,0 +1,42 @@
+{
+  "name": "@hopets/delete-node-modules",
+  "version": "1.0.0",
+  "description": "Delete node_modules in a given directory",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "bin": {
+    "delete-node-modules": "dist/index.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "node_modules",
+    "nodejs",
+    "npm"
+  ],
+  "author": "Jenna Baudelaire (GitHub HopeTS) <jennabaudelaire@pm.me>",
+  "license": "AGPL-3.0-only",
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "prepublishOnly": "npm run build"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.1",
+    "tsup": "^8.5.0",
+    "typescript": "^5.9.3"
+  }
+}
