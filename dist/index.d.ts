@@ -3,7 +3,8 @@
  * Recursively walk a directory and find all node_modules folders.
  *
  * @param rootDir Absolute path to search from.
- * @returns List of absolute paths to node_modules folders.
+ *
+ * @return List of absolute paths to node_modules folders.
  */
 declare function findNodeModulesDirs(rootDir: string): Promise<string[]>;
 /**

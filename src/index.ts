@@ -7,7 +7,8 @@ import process from "process";
  * Recursively walk a directory and find all node_modules folders.
  *
  * @param rootDir Absolute path to search from.
- * @returns List of absolute paths to node_modules folders.
+ *
+ * @return List of absolute paths to node_modules folders.
  */
 export async function findNodeModulesDirs(rootDir: string): Promise<string[]> {
   const results: string[] = [];
@@ -75,6 +76,7 @@ export async function deleteNodeModules(
   for (const dir of found) {
     try {
       await deleteDir(dir);
+      console.log("Deleted dir", dir);
       deleted.push(dir);
     } catch (err: any) {
       console.error(`Failed to delete ${dir}:`, err?.message ?? err);

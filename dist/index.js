@@ -39,6 +39,7 @@ async function deleteNodeModules(rootDir) {
   for (const dir of found) {
     try {
       await deleteDir(dir);
+      console.log("Deleted dir", dir);
       deleted.push(dir);
     } catch (err) {
       console.error(`Failed to delete ${dir}:`, err?.message ?? err);

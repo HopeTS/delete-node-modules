@@ -20,6 +20,10 @@ delete-node-modules absolute/path/to/folder
 
 ## 🚧 Changelog
 
+### 1.0.1
+
+- Log deleted files to console
+
 ### 1.0.0
 
 - Initial release
