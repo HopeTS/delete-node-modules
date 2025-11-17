@@ -3,6 +3,7 @@
 // src/index.ts
 import fs from "fs";
 import path from "path";
+import process from "process";
 async function findNodeModulesDirs(rootDir) {
   const results = [];
   async function walk(current) {
@@ -45,6 +46,14 @@ async function deleteNodeModules(rootDir) {
   }
   return { found, deleted };
 }
+(async function() {
+  const dirArg = process.argv[2] || process.cwd();
+  if (!fs.existsSync(dirArg)) {
+    console.log("Invalid path argument");
+    return;
+  }
+  await deleteNodeModules(dirArg);
+})();
 export {
   deleteDir,
   deleteNodeModules,

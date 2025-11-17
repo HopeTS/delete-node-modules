@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import fs from "fs";
 import path from "path";
+import process from "process";
 
 /**
  * Recursively walk a directory and find all node_modules folders.
@@ -82,3 +83,12 @@ export async function deleteNodeModules(
 
   return { found, deleted };
 }
+
+(async function () {
+  const dirArg = process.argv[2] || process.cwd();
+  if (!fs.existsSync(dirArg)) {
+    console.log("Invalid path argument");
+    return;
+  }
+  await deleteNodeModules(dirArg);
+})();

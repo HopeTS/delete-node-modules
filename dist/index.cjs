@@ -38,6 +38,7 @@ __export(index_exports, {
 module.exports = __toCommonJS(index_exports);
 var import_fs = __toESM(require("fs"), 1);
 var import_path = __toESM(require("path"), 1);
+var import_process = __toESM(require("process"), 1);
 async function findNodeModulesDirs(rootDir) {
   const results = [];
   async function walk(current) {
@@ -80,6 +81,14 @@ async function deleteNodeModules(rootDir) {
   }
   return { found, deleted };
 }
+(async function() {
+  const dirArg = import_process.default.argv[2] || import_process.default.cwd();
+  if (!import_fs.default.existsSync(dirArg)) {
+    console.log("Invalid path argument");
+    return;
+  }
+  await deleteNodeModules(dirArg);
+})();
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
   deleteDir,
